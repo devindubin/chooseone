@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Settings{%endblock%}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+
+    </style>
+{%endblock%}
+{%block content%}
+<form id="choices" method="post">
+    <input type="radio" class="choice" name="options" value="breakfast">Breakfast</button>
+    <input type="radio" class="choice" name="options" value="lunch">Lunch</button>
+    <input type="radio" class="choice" name="options" value="dinner">Dinner</button>
+    <input type="radio" class="choice" name="options" value="dessert">Dessert</button>
+    <input type="radio" class="choice" name="options" value="random">Random</button>
+    <button type="submit">Submit</button>
+</div>
+{%endblock%}
