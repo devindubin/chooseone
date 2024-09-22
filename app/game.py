@@ -15,29 +15,25 @@ def play_game():
     data = request.args.get("data")
 
 
-    # chat_completion = client.chat.completions.create(
-    #     messages=[
-    #         {
-    #             "role":"user",
-    #             "content": f"Provide a bulleted list of 4 random examples of the following meal type {data}. Do not repeat the prompt or provide any text other than the four examples."
-    #         }
-    #     ],
-    #     model="gemma2-9b-it"
-    # )
 
     completion = client.chat.completions.create(model='gpt-4o-mini',
                                          messages=[
                                              {"role":"system","content":"You are a list generator."},
-                                             {"role":"user","content":f"List 4 random examples of the following meal category: {data}"}
+                                             {"role":"user","content":f"List 4 random examples of the following meal category: {data}. Provide output at as comma seperated list."}
                                          ])
 
 
 
-
-
-
-
-    print(data)
-    print("test")
     
     return completion.choices[0].message.content
+
+#TODO: AI Generative images
+def generate_images():
+    """Requests AI image generation for listed dishes"""
+    pass
+
+#TODO: AI search for images
+def search_images():
+    """Requests AI to websearch for images of listed dishes"""
+    pass
+
