@@ -6,15 +6,18 @@ from openai import OpenAI
 client=OpenAI()
 
 
-from flask import Blueprint, request
-
-bp = Blueprint("game",__name__,"/game")
-
-@bp.route("/")
-def play_game():
-    data = request.args.get("data")
+def generate_game():
+    #TODO: Call generate_food
+    
+    return 
 
 
+
+
+def generate_food(data):
+    #TODO: add parameter for choice of search or generation of image
+
+    #TODO: Fine tune AI call to only return itemized list of foods
 
     completion = client.chat.completions.create(model='gpt-4o-mini',
                                          messages=[
@@ -23,14 +26,28 @@ def play_game():
                                          ])
 
 
-
-    
-    return completion.choices[0].message.content
+    #TODO: pass list to image generator or image search engine
+    print(completion.choices[0].message.content)
+    return 
 
 #TODO: AI Generative images
-def generate_images():
+def generate_images(food_list: list) -> dict:
     """Requests AI image generation for listed dishes"""
-    pass
+
+    food_output = {}
+
+    for item in food_list:
+        resp = client.images.generate(
+            model="dall-e-3",
+            prompt=item,
+            n=1,
+            size="1024x1024"
+        )
+        food_output[item] = resp
+
+
+    return food_output
+    
 
 #TODO: AI search for images
 def search_images():

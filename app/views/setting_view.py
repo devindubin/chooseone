@@ -9,6 +9,6 @@ def settings():
         choice = request.form['options']
         
         #TODO set choice as environment variable to be pulled into request to ai
-        return redirect(url_for("game.play_game",data=choice))
+        return redirect(url_for("game_view.play_game",data=choice))
     else:
         return render_template('settings/settings.html')

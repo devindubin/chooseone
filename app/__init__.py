@@ -29,8 +29,8 @@ def init_app():
 
     with app.app_context():
         
-        from .settings import bp as settings_blueprint
-        from .game import bp as games_blueprint
+        from .views.setting_view import bp as settings_blueprint
+        from .views.game_view import bp as games_blueprint
 
         db.create_all()
         app.register_blueprint(settings_blueprint)
