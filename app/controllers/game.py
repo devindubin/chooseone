@@ -6,9 +6,16 @@ from openai import OpenAI
 client=OpenAI()
 
 
-def generate_game():
+def generate_game(meal_choice,image_type) -> dict:
+    #TODO: Receive input from meal selection
     #TODO: Call generate_food
-    
+    if image_type == 'generative':
+        #TODO: call generate_images()
+        pass
+    elif image_type == 'search':
+        #TODO: call search_images()
+        pass
+
     return 
 
 
